@@ -130,7 +130,7 @@
 
         </div>
 
-        <div class="chart" id="chart{{ forloop.counter0 }}" style="height: 450px; width: 100%; background-color:rgb(239, 249, 234);" ></div>
+        <div class="chart" id="chart{{ forloop.counter0 }}" style="height: 550px; width: 100%; background-color:rgb(239, 249, 234);" ></div>
 
     </div>
 
@@ -193,8 +193,12 @@
                         },
 
                         legend: {
-                            top: 'top',
-                            right: 'right',
+                            top: '0%',
+                            right:'0%',
+                            orient: 'vertical',
+                            textStyle:{
+                                fontSize: 8,
+                            },
                           },
 
                         series: [{
@@ -208,7 +212,7 @@
                     if (select_plot_type === 'pie') {
                         
                         option.series[0].type = 'pie';
-                        option.series[0].radius = '50%';
+                        option.series[0].radius = '60%';
 
                         option.series[0].data = x_data.map(function (item, index) {
                             return { value: y_data[index], name: item };
@@ -236,6 +240,9 @@
         }
 
     </script>
+
+
+    <h1>All data in table</h1>
 
     <div class="container_table">
 
