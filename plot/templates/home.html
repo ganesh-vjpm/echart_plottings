@@ -7,8 +7,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
     
-<style>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -99,44 +97,40 @@
             background-color: #eff4f5;
         }
 
-
     </style>
-
-</style>
-
-
 </head>
+
 <body>
 
     <h1>All charts</h1>
 
-<div class="container_chart">
+    <div class="container_chart">
 
-    {% for plot_key,plot_value in content.plot_data.items %}
+        {% for plot_key,plot_value in content.plot_data.items %}
 
-    <div class="chart_data">
+        <div class="chart_data">
 
-        <h2>{{plot_value.plot_title}}</h2>
+            <h2>{{plot_value.plot_title}}</h2>
 
-        <div class="form-group" >
+            <div class="form-group" >
             
-          <select name="plot_select" id="plot_type_{{ forloop.counter0 }}" onchange="update_plot_type({{ forloop.counter0 }})">
+                <select name="plot_select" id="plot_type_{{ forloop.counter0 }}" onchange="update_plot_type({{ forloop.counter0 }})">
 
-                <option value = "line" selected>   line  </option>
-                <option value = "bar"          >   bar   </option>
-                <option value = "pie"          >   pie   </option>
-                <option value = "scatter"      > scatter </option>
-            </select>
+                    <option value = "line" selected>   line  </option>
+                    <option value = "bar"          >   bar   </option>
+                    <option value = "pie"          >   pie   </option>
+                    <option value = "scatter"      > scatter </option>
+                </select>
+
+            </div>
+
+            <div class="chart" id="chart{{ forloop.counter0 }}" style="height: 550px; width: 100%; background-color:rgb(239, 249, 234);" ></div>
 
         </div>
 
-        <div class="chart" id="chart{{ forloop.counter0 }}" style="height: 550px; width: 100%; background-color:rgb(239, 249, 234);" ></div>
+        {% endfor %}
 
     </div>
-
-    {% endfor %}
-
-</div>
     
     <script>
 
@@ -147,7 +141,6 @@
                 
             {% endfor %}
         }
-
 
         function update_plot_type(plot_index){            
 
@@ -211,11 +204,13 @@
 
                     if (select_plot_type === 'pie') {
                         
-                        option.series[0].type = 'pie';
+                        option.series[0].type   = 'pie';
                         option.series[0].radius = '60%';
 
                         option.series[0].data = x_data.map(function (item, index) {
+
                             return { value: y_data[index], name: item };
+
                         });
 
                         option.tooltip.trigger = 'item';
@@ -226,13 +221,11 @@
                             formatter: '{b}: {d}%'
                         };
                     
-
                     }
 
                     plots.setOption(option)
 
                 })();
-
             }
 
             {% endfor %}
@@ -240,7 +233,6 @@
         }
 
     </script>
-
 
     <h1>All data in table</h1>
 

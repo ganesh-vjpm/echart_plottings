@@ -22,7 +22,6 @@ def db_table0():
     table_title, x_lables, y_lables = 'Quarterly Sales by Category', 'Quarter', 'Sales'
 
     return x_axis, y_axis, table_title, table0, x_lables, y_lables
-    # return table_title,table0
 
 
 def db_table1():
@@ -36,7 +35,6 @@ def db_table1():
     table_title, x_lables, y_lables = 'Monthly Sales', 'Month', 'Sales'
 
     return x_axis, y_axis, table_title, table1, x_lables, y_lables
-    # return table_title,table1
 
 
 def db_table2():
@@ -52,7 +50,6 @@ def db_table2():
     table_title, x_lables, y_lables = 'Department Revenues', 'Department', 'Revenue'
 
     return x_axis, y_axis, table_title, table2, x_lables, y_lables
-    # return table_title,table2
 
 
 def db_table3():
@@ -69,7 +66,6 @@ def db_table3():
     table_title, x_lables, y_lables = 'Aspect Scores', 'Aspect', 'Score'
 
     return x_axis, y_axis, table_title, table3, x_lables, y_lables
-    # return table_title,table3
 
 
 def db_table4():
@@ -77,7 +73,7 @@ def db_table4():
     data4 = Scatter_plot.objects.all()
 
     hours_studied = [ obj.hoursstudied for obj in data4 ]
-    exam_scores   = [ obj.examscore for obj in data4 ]
+    exam_scores   = [ obj.examscore    for obj in data4 ]
 
     table4 = pd.DataFrame({'Hours': hours_studied, 'Exam score': exam_scores}).to_html(classes='table', index=False)
 
@@ -86,13 +82,13 @@ def db_table4():
     table_title, x_lables, y_lables = 'Study Hours and Exam Score', 'Hours studied', 'Exam Score'
 
     return x_axis, y_axis, table_title, table4, x_lables, y_lables
-    # return table_title,table4
+
 
 def db_table5():
 
     data5 = Area_plot.objects.all()
 
-    month        = [ obj.month for obj in data5 ]
+    month        = [ obj.month       for obj in data5 ]
     new_customer = [ obj.newcustomer for obj in data5 ]
     old_customer = [ obj.oldcustomer for obj in data5 ]
 
@@ -103,7 +99,7 @@ def db_table5():
     table_title, x_lables, y_lables = 'New and Old Customers per Month', 'Month', 'Customers'
 
     return x_axis, y_axis, table_title, table5, x_lables, y_lables
-    # return table_title,table5
+
 
 def db_table6():
     data6 = Pie_plot.objects.all()
@@ -118,7 +114,7 @@ def db_table6():
     table_title, x_lables, y_lables = 'Company Sales', 'Company', 'Sales'
 
     return x_axis, y_axis, table_title, table6, x_lables, y_lables
-    # return table_title,table6
+
 
 def db_table7():
     data7 = Heatmap_plot.objects.all()
@@ -137,7 +133,7 @@ def db_table7():
     table_title, x_lables, y_lables = 'Regional Sales Over Months', 'Region', 'Sales'
 
     return x_axis, y_axis, table_title, table7, x_lables, y_lables
-    # return table_title,table7
+
 
 def db_table8():
     data8 = Box_plot.objects.all()
@@ -156,7 +152,7 @@ def db_table8():
     table_title, x_lables, y_lables = 'Department Statistics', 'Department', 'Statistics'
 
     return x_axis, y_axis, table_title, table8, x_lables, y_lables
-    # return table_title,table8
+
 
 def db_table9():
 
@@ -172,7 +168,6 @@ def db_table9():
     table_title, x_lables, y_lables = 'Customer Age Groups', 'Age Groups', 'Customers'
 
     return x_axis, y_axis, table_title, table9, x_lables, y_lables
-    # return table_title,table9
 
 
 def home(request):
